@@ -2,9 +2,6 @@
 
 Ce projet présente trois activités de communication **Client/Serveur** en Java avec les sockets TCP.
 
-## Table des matières
-
-
 ---
 
 ## Structure du projet
@@ -61,7 +58,7 @@ Le serveur écoute sur le port **1234**. Le client s'y connecte via `localhost`.
 
 
 ![Activité 1](captures/activite1.png)
-<img width="917" height="857" alt="image" src="https://github.com/user-attachments/assets/2f571877-b23c-4a14-8c64-687b12b4c758" />
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/2f571877-b23c-4a14-8c64-687b12b4c758" />
 
 ---
 
