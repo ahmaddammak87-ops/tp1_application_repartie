@@ -57,8 +57,12 @@ TP1-DAR2026/
 Le serveur écoute sur le port **1234**. Le client s'y connecte via `localhost`.
 
 
-![Activité 1](captures/activite1.png)
+![Activité 1]
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/2f571877-b23c-4a14-8c64-687b12b4c758" />
+<img width="500" height="742" alt="image" src="https://github.com/user-attachments/assets/37c8b19c-fe89-4541-9d2c-c7851a3a3380" />
+resultat :<img width="500" height="637" alt="image" src="https://github.com/user-attachments/assets/cfcb96c9-a028-4a8d-848c-8ca7e298c603" />
+
+
 
 ---
 
@@ -67,7 +71,10 @@ Le serveur écoute sur le port **1234**. Le client s'y connecte via `localhost`.
 ### Étape 1 : Préparation de l'espace de travail
 Création du projet IntelliJ avec les packages `clientPackage` et `serveurPackage`.
 
-![Espace de travail](captures/etape1.png)
+![Espace de travail] <img width="500" height="907" alt="image" src="https://github.com/user-attachments/assets/0a8c7b7c-ae5f-47b2-9645-5bc51e99669e" />
+<img width="500" height="940" alt="image" src="https://github.com/user-attachments/assets/ceec3bd5-c186-45b4-9e57-0a4446a31863" />
+
+
 
 ### Étape 2 : Fonctionnement
 
@@ -93,8 +100,10 @@ Création du projet IntelliJ avec les packages `clientPackage` et `serveurPackag
 | -3 | -15 | Le signe est conservé |
 | 0 | (fin) | Arrêt propre de la communication |
 
-![Tests](captures/activite2-tests.png)
-![Fermeture](captures/activite2-fermeture.png)
+![Tests] <img width="500" height="440" alt="image" src="https://github.com/user-attachments/assets/6e628318-1131-4075-b2aa-fb06e23c1837" />
+
+![Fermeture]<img width="500" height="437" alt="image" src="https://github.com/user-attachments/assets/53cc727d-7b35-42c0-a217-e2064a74003e" />
+
 
 ---
 
@@ -106,23 +115,32 @@ Les deux machines doivent être sur le **même réseau local**.
 
 - **Côté serveur** : le `ServerSocket` est lié à l'IP réelle de la machine et à un port choisi.
   ```java
-  InetAddress ip = InetAddress.getByName("192.168.1.10");   // IP du serveur
+  InetAddress ip = InetAddress.getByName("192.168.100.3");   // IP du serveur
   InetSocketAddress adresse = new InetSocketAddress(ip, 1234);
   ServerSocket serverSocket = new ServerSocket();
   serverSocket.bind(adresse);
   ```
 - **Côté client** : `localhost` est remplacé par l'IP de la machine serveur.
   ```java
-  InetAddress ipServeur = InetAddress.getByName("192.168.1.10");
+  InetAddress ipServeur = InetAddress.getByName("192.168.100.3");
   Socket socket = new Socket();
   socket.connect(new InetSocketAddress(ipServeur, 1234), 5000);
   ```
 
-**Trouver l'adresse IP :** `ipconfig` (Windows) ou `ip a` (Linux).
+**Trouver l'adresse IP :** `ipconfig` (Windows) 
 
-![IP du serveur](captures/ip-serveur.png)
-![IP du client](captures/ip-client.png)
-![Connexion](captures/connexion.png)
+![serveur]<img width="500" height="922" alt="image" src="https://github.com/user-attachments/assets/11e55eb0-cd04-47b5-8473-8fb4db7e196d" />
+<img width="913" height="780" alt="image" src="https://github.com/user-attachments/assets/4adbb558-664f-4bc9-acd5-f400b50c2ae6" />
+
+
+
+![IP du client]<img width="800" height="926" alt="image" src="https://github.com/user-attachments/assets/d45f1e92-6365-47ba-b946-37b49516a90c" />
+<img width="1222" height="806" alt="image" src="https://github.com/user-attachments/assets/4c08a6ba-14ec-4b26-9aa4-9692489babea" />
+
+
+![Connexion]<img width="500" height="357" alt="image" src="https://github.com/user-attachments/assets/c4a7013d-60a3-4c01-a3cd-4c7f1ccb789a" />
+
+
 
 ### Étape 2 : Calculatrice
 
@@ -153,45 +171,21 @@ Le serveur répond `ok = false` en cas de division par zéro ou de choix inconnu
 | Division | 7 | 2 | 3.5 |
 | Division | 5 | 0 | Erreur |
 
-![Addition](captures/addition.png)
-![Soustraction](captures/soustraction.png)
-![Multiplication](captures/multiplication.png)
-![Division](captures/division.png)
-![Division par zéro](captures/division-zero.png)
+
 
 ---
 
 ## Compilation et exécution
 
-### Avec IntelliJ
 1. Lancer d'abord la classe **Serveur** (clic droit puis *Run*).
 2. Lancer ensuite la classe **Client**.
 3. Pour l'Activité 3, exécuter le serveur sur la machine A et le client sur la machine B.
 
-### En ligne de commande
-```bash
-javac -d out src/serveurPackage/*.java src/clientPackage/*.java
-java -cp out serveurPackage.Server2     # terminal 1
-java -cp out clientPackage.Client2      # terminal 2
-```
 
----
 
-## Problèmes fréquents
 
-| Problème | Cause probable | Solution |
-|----------|----------------|----------|
-| `Connection refused` | Le serveur n'est pas lancé, ou le port est incorrect | Lancer le serveur d'abord, vérifier le port |
-| `Address already in use` | Une ancienne instance occupe le port | Arrêter l'ancien processus (bouton stop) |
-| Timeout de connexion (Activité 3) | Mauvaise IP ou pare-feu | Vérifier l'IP avec `ipconfig`, autoriser le port 1234 |
-| `BindException: Cannot assign requested address` | L'IP écrite dans le serveur n'est pas celle de la machine | Mettre l'IP réelle du serveur |
-| Programme bloqué | Ordre de lecture/écriture incohérent entre client et serveur | Vérifier que chaque `write` correspond à un `read` |
-| `InputMismatchException` | Saisie d'autre chose qu'un entier | Saisir un entier valide |
-| `package ... does not match` | Le nom du package ne correspond pas au dossier | Aligner la ligne `package` avec le dossier |
 
----
 
-## Auteur
-Nom : ...
-Filière / Groupe : ...
-Année : 2026
+Nom : ahmed dammak
+Filière  : lsi3
+
