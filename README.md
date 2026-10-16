@@ -3,13 +3,7 @@
 Ce projet présente trois activités de communication **Client/Serveur** en Java avec les sockets TCP.
 
 ## Table des matières
-1. [Structure du projet](#structure-du-projet)
-2. [Notions utilisées](#notions-utilisées)
-3. [Activité 1 : Premier échange Client/Serveur](#activité-1--premier-échange-clientserveur)
-4. [Activité 2 : Service de multiplication](#activité-2--service-de-multiplication)
-5. [Activité 3 : Deux machines et calculatrice](#activité-3--deux-machines-et-calculatrice)
-6. [Compilation et exécution](#compilation-et-exécution)
-7. [Problèmes fréquents](#problèmes-fréquents)
+
 
 ---
 
@@ -65,9 +59,9 @@ TP1-DAR2026/
 
 Le serveur écoute sur le port **1234**. Le client s'y connecte via `localhost`.
 
-> À compléter avec la description de votre Activité 1 et vos captures.
 
 ![Activité 1](captures/activite1.png)
+<img width="917" height="857" alt="image" src="https://github.com/user-attachments/assets/2f571877-b23c-4a14-8c64-687b12b4c758" />
 
 ---
 
